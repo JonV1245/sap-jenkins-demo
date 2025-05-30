@@ -6,9 +6,9 @@ pipeline {
                 echo 'Cloning GitHub repo...'
             }
         }
-        stage('Run Script') {
+        stage('Simple Shell Task') {
             steps {
-                sh 'python hello.py'
+                sh 'echo Hello from Jenkins Pipeline!'
             }
         }
     }
