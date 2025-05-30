@@ -3,13 +3,33 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                echo 'Cloning GitHub repo...'
+                echo 'Cloning repository...'
             }
         }
-        stage('Simple Shell Task') {
+        stage('Build') {
             steps {
-                sh 'echo Hello from Jenkins Pipeline!'
+                echo 'Simulating build step...'
+                sh 'echo Building project...'
             }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running unit tests...'
+                sh 'echo All tests passed!'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deployment stage (placeholder)...'
+            }
+        }
+    }
+    post {
+        success {
+            echo 'Pipeline executed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed!'
         }
     }
 }
